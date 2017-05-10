@@ -5,7 +5,7 @@ $resourceGroupName = "boinfra-rg"
 
 $location = "West Europe"
 
-$templateFile = "..\virtual-machines\n-tier-windows\virtualNetwork.azuredeploy.json "
+$templateFile = "..\virtual-machines\n-tier-windows\virtualNetwork.azuredeploy.json"
 
 # Valid values are:
 #   - Standard_LRS
@@ -30,4 +30,4 @@ $templateFilePath = Join-Path $PSScriptRoot $templateFile -Resolve
 
 #New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFilePath -parameterRootUri $parametersRootFolder
+  -TemplateFile $templateFilePath
