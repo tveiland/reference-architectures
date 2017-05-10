@@ -1,7 +1,7 @@
 # Parameters
 $subscriptionID = "d72991ff-73d9-4b31-addf-369e1a4a695b"
 
-$resourceGroupName = "BOInfraResourceGroup"
+$resourceGroupName = "boinfra-rg"
 
 $location = "West Europe"
 
