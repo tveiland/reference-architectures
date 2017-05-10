@@ -30,4 +30,4 @@ Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFilePath -parameterRootUri $parametersRootFolder
+  -TemplateFile $templateFilePath
