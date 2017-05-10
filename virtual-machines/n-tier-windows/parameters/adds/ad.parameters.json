@@ -4,7 +4,7 @@
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "ra-ntier-sql-ad",
+        "namePrefix": "boinfra-sql-ad",
         "computerNamePrefix": "ad",
         "size": "Standard_DS1_v2",
         "osType": "windows",

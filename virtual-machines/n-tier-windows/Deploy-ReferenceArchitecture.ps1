@@ -62,16 +62,16 @@ Login-AzureRmAccount -SubscriptionId $SubscriptionId | Out-Null
 if ($Mode -eq "Infrastructure") {
     $infrastructureResourceGroup = New-AzureRmResourceGroup -Name $infrastructureResourceGroupName -Location $Location
     Write-Host "Creating virtual network..."
-    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-vnet-deployment" `
+    New-AzureRmResourceGroupDeployment -Name "boinfra-sql-vnet-deployment" `
         -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName -TemplateUri $virtualNetworkTemplate.AbsoluteUri `
         -TemplateParameterFile $virtualNetworkParametersFile
 
 	Write-Host "Deploying jumpbox..."
-	New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-mgmt-deployment" -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
+	New-AzureRmResourceGroupDeployment -Name "boinfra-sql-mgmt-deployment" -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
     -TemplateUri $virtualMachineTemplate.AbsoluteUri -TemplateParameterFile $managementParametersFile
 
     Write-Host "Deploying ADDS servers..."
-    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-ad-deployment" `
+    New-AzureRmResourceGroupDeployment -Name "boinfra-sql-ad-deployment" `
         -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
         -TemplateUri $virtualMachineTemplate.AbsoluteUri -TemplateParameterFile $domainControllersParametersFile
 
@@ -96,7 +96,7 @@ if ($Mode -eq "Infrastructure") {
         -TemplateParameterFile $sqlParametersFile
 
     Write-Host "Deploy FWS..."
-    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-fsw" `
+    New-AzureRmResourceGroupDeployment -Name "boinfra-sql-fsw" `
         -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
         -TemplateUri $virtualMachineTemplate.AbsoluteUri -TemplateParameterFile $fswParametersFile
 
@@ -114,10 +114,10 @@ elseif ($Mode -eq "Workload") {
     Write-Host "Creating workload resource group..."
     $workloadResourceGroup = New-AzureRmResourceGroup -Name $workloadResourceGroupName -Location $Location
 
-    Write-Host "Deploy Service A servers with load balancer..."
-    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-biz-deployment" `
-        -ResourceGroupName $workloadResourceGroup.ResourceGroupName -TemplateUri $loadBalancerTemplate.AbsoluteUri `
-        -TemplateParameterFile $bizLoadBalancerParametersFile
+#    Write-Host "Deploy Service A servers with load balancer..."
+#    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-biz-deployment" `
+#        -ResourceGroupName $workloadResourceGroup.ResourceGroupName -TemplateUri $loadBalancerTemplate.AbsoluteUri `
+#        -TemplateParameterFile $bizLoadBalancerParametersFile
 
 	Write-Host "Deploy Service B servers with load balancer..."
     New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-web-deployment" `
@@ -129,7 +129,7 @@ elseif ($Mode -eq "Security") {
     $infrastructureResourceGroup = Get-AzureRmResourceGroup -Name $infrastructureResourceGroupName 
 
     Write-Host "Deploying NSGs..."
-    New-AzureRmResourceGroupDeployment -Name "ra-ntier-sql-nsg-deployment" -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
+    New-AzureRmResourceGroupDeployment -Name "boinfra-sql-nsg-deployment" -ResourceGroupName $infrastructureResourceGroup.ResourceGroupName `
         -TemplateUri $networkSecurityGroupTemplate.AbsoluteUri -TemplateParameterFile $networkSecurityGroupParametersFile
 
 }
