@@ -4,8 +4,8 @@
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "ra-ntier-sql-vnet",
-        "resourceGroup": "ra-ntier-sql-network-rg"
+        "name": "boinfra-sql-vnet",
+        "resourceGroup": "boinfra-rg"
       }
     },
     "networkSecurityGroupsSettings": {

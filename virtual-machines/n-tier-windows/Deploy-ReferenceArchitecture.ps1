@@ -53,7 +53,7 @@ $bizLoadBalancerParametersFile = [System.IO.Path]::Combine($PSScriptRoot, "param
 $webLoadBalancerParametersFile = [System.IO.Path]::Combine($PSScriptRoot, "parameters\web.parameters.json")
 $networkSecurityGroupParametersFile = [System.IO.Path]::Combine($PSScriptRoot, "parameters\networkSecurityGroups.parameters.json")
 
-$infrastructureResourceGroupName = "ra-ntier-sql-network-rg"
+$infrastructureResourceGroupName = "boinfra-rg"
 $workloadResourceGroupName = "ra-ntier-sql-workload-rg"
 
 # Login to Azure and select your subscription
