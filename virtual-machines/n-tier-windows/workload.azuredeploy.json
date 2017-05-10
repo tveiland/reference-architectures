@@ -11,7 +11,7 @@
     },
     "parameterRootUri": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/tveiland/reference-architectures/tveiland/virtual-machines/n-tier-windows/parameters/",
+      "defaultValue": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/n-tier-windows/parameters/",
       "metadata": {
         "decription": "Root path for parameters"
       }
@@ -31,6 +31,21 @@
     }
   },
   "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "name": "ra-ntier-sql-biz-deployment",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('templates').deployment.loadBalancer]"
+        },
+        "parametersLink": {
+          "uri": "[variables('templates').parameter.biz]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",

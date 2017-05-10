@@ -4,10 +4,10 @@
   "parameters": {
     "loadBalancerSettings": {
       "value": {
-        "name": "boinfra-sql-lb",
+        "name": "ra-ntier-sql-lb",
         "frontendIPConfigurations": [
           {
-            "name": "boinfra-sql-lbfe1",
+            "name": "ra-ntier-sql-lbfe1",
             "loadBalancerType": "internal",
             "domainNameLabel": "",
             "internalLoadBalancerSettings": {
@@ -22,15 +22,15 @@
             "frontendPort": 1433,
             "backendPort": 1433,
             "protocol": "Tcp",
-            "backendPoolName": "boinfra-sql-lb-bep1",
-            "frontendIPConfigurationName": "boinfra-sql-lbfe1",
+            "backendPoolName": "ra-ntier-sql-lb-bep1",
+            "frontendIPConfigurationName": "ra-ntier-sql-lbfe1",
             "enableFloatingIP": true,
-            "probeName": "boinfra-sql-lbp1"
+            "probeName": "ra-ntier-sql-lbp1"
           }
         ],
         "probes": [
           {
-            "name": "boinfra-sql-lbp1",
+            "name": "ra-ntier-sql-lbp1",
             "port": 59999,
             "protocol": "Tcp",
             "requestPath": null
@@ -38,7 +38,7 @@
         ],
         "backendPools": [
           {
-            "name": "boinfra-sql-lb-bep1",
+            "name": "ra-ntier-sql-lb-bep1",
             "nicIndex": 0
           }
         ],
@@ -47,7 +47,7 @@
     },
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "boinfra-sql",
+        "namePrefix": "ra-ntier-sql",
         "computerNamePrefix": "sql",
         "size": "Standard_DS1_v2",
         "osType": "windows",

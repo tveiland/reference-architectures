@@ -11,7 +11,7 @@
     "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "boinfra-sql-ad-nsg",
+          "name": "ra-ntier-sql-ad-nsg",
           "subnets": [
             "ad"
           ],
@@ -21,7 +21,7 @@
           ]
         },
         {
-          "name": "boinfra-sql-nsg",
+          "name": "ra-ntier-sql-nsg",
           "subnets": [
             "sql"
           ],
@@ -29,12 +29,12 @@
           ],
           "securityRules": [
             {
-              "name": "allow-traffic-from-web",
+              "name": "allow-traffic-from-biz",
               "description": "Allow traffic originating from Business tier.",
               "protocol": "*",
               "sourcePortRange": "*",
               "destinationPortRange": "1433",
-              "sourceAddressPrefix": "10.0.3.0/24",
+              "sourceAddressPrefix": "10.0.2.0/24",
               "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 100,
@@ -66,7 +66,7 @@
           ]
         },
         {
-          "name": "boinfra-sql-svca-nsg",
+          "name": "ra-ntier-sql-svca-nsg",
           "subnets": [
             "biz"
           ],
@@ -111,7 +111,7 @@
           ]
         },
         {
-          "name": "boinfra-sql-svcb-nsg",
+          "name": "ra-ntier-sql-svcb-nsg",
           "subnets": [
             "web"
           ],
@@ -168,10 +168,10 @@
           ]
         },
         {
-          "name": "boinfra-sql-mgmt-nsg",
+          "name": "ra-ntier-sql-mgmt-nsg",
           "subnets": [ ],
           "networkInterfaces": [
-            "boinfra-sql-jb-vm1-nic1"
+            "ra-ntier-sql-jb-vm1-nic1"
           ],
           "securityRules": [
             {

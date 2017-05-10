@@ -43,7 +43,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
-      "name": "boinfra-sql-vnet-deployment",
+      "name": "ra-ntier-sql-vnet-deployment",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -58,9 +58,9 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
-      "name": "boinfra-sql-mgmt-deployment",
+      "name": "ra-ntier-sql-mgmt-deployment",
       "dependsOn": [
-        "boinfra-sql-vnet-deployment"
+        "ra-ntier-sql-vnet-deployment"
       ],
       "properties": {
         "mode": "Incremental",
@@ -76,9 +76,9 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
-      "name": "boinfra-sql-ad-deployment",
+      "name": "ra-ntier-sql-ad-deployment",
       "dependsOn": [
-        "boinfra-sql-vnet-deployment"
+        "ra-ntier-sql-vnet-deployment"
       ],
       "properties": {
         "mode": "Incremental",
@@ -96,7 +96,7 @@
       "apiVersion": "2015-01-01",
       "name": "ra-ntier-sql-update-dns",
       "dependsOn": [
-        "boinfra-sql-ad-deployment"
+        "ra-ntier-sql-ad-deployment"
       ],
       "properties": {
         "mode": "Incremental",
@@ -166,7 +166,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
-      "name": "boinfra-sql-fsw",
+      "name": "ra-ntier-sql-fsw",
       "dependsOn": [
         "ra-ntier-sql-secondary-ad-ext"
       ],
@@ -187,7 +187,7 @@
       "name": "ra-ntier-sql-ao-iaas-ext",
       "dependsOn": [
         "ra-ntier-sql-servers",
-        "boinfra-sql-fsw"
+        "ra-ntier-sql-fsw"
       ],
       "properties": {
         "mode": "Incremental",

@@ -5,7 +5,7 @@
     "virtualMachinesExtensionSettings": {
       "value": [
         {
-          "vms": [ "boinfra-sql-vm2" ],
+          "vms": [ "ra-ntier-sql-vm2" ],
           "extensions": [
             {
               "name": "configuringAlwaysOn",
@@ -30,7 +30,7 @@
                   "sqlAlwaysOnAvailabilityGroupListenerName": "alwayson-ag-listener",
                   "SqlAlwaysOnAvailabilityGroupListenerPort": "1433",
                   "databaseNames": "AutoHa-sample",
-                  "lbName": "boinfra-sql-lb",
+                  "lbName": "ra-ntier-sql-lb",
                   "lbAddress": "10.0.3.100",
                   "primaryReplica": "sql2",
                   "secondaryReplica": "sql1",

@@ -20,14 +20,14 @@ $templateFile = "..\virtual-machines\n-tier-windows\virtualNetwork.azuredeploy.j
 $templateFilePath = Join-Path $PSScriptRoot $templateFile -Resolve
 
 # Login in to Azure
-#Login-AzureRmAccount
+Login-AzureRmAccount
 
 # Get the subscriptions if you have more
 #Get-AzureRmSubscription
 
 # Select the proper subscription if your have more than one
-#Select-AzureRmSubscription -SubscriptionId $subscriptionID
+Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-#New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFilePath
+  -TemplateFile $templateFilePath -parameterRootUri $parametersRootFolder

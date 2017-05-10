@@ -4,7 +4,7 @@
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "boinfra-sql-fsw",
+        "namePrefix": "ra-ntier-sql-fsw",
         "computerNamePrefix": "fsw",
         "size": "Standard_DS1_v2",
         "osType": "windows",

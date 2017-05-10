@@ -4,7 +4,7 @@
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "boinfra-sql-jb",
+        "namePrefix": "ra-ntier-sql-jb",
         "computerNamePrefix": "jb",
         "size": "Standard_DS1_v2",
         "osType": "windows",
